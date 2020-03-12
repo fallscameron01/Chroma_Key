@@ -47,5 +47,11 @@ def chroma_key(path, bgImage, newPath=os.path.join(os.getcwd(), "chroma")):
             # Apply new background
             image = np.where(mask == 0, image, background_image)
 
-            # Save the new image
-            cv2.imwrite(os.path.join(newPath, file), image)
+            # Save the new image, ensuring the old image is not overwritten
+            if path != newPath:
+                cv2.imwrite(os.path.join(newPath, file), image)
+            else:
+                cv2.imwrite(os.path.join(newPath, os.path.splitext(file)[0] + "-ck." + extension), image)
+
+ipath = os.path.join("/", "users", "camfa", "pictures", "Green Screen Testing")
+chroma_key(os.path.join(ipath, "images"), os.path.join(ipath, "field.jpg"), os.path.join(ipath, "images"))

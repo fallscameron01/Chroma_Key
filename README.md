@@ -13,9 +13,9 @@ or
 from chroma_key import chromakey
 
 Call the function chroma_key with the following parameters:
-    path - string - path of image folder where chroma_key will be applied
-    bgImage - string - path of the background image
-    newPath - string, optional - path of folder where new images will be created
+path - string - path of image folder where chroma_key will be applied
+bgImage - string - path of the background image
+newPath - string, optional - path of folder where new images will be created
 
 ## Dependencies
 cv2
