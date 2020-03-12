@@ -9,12 +9,17 @@ chroma_key() iterates through each file in a directory. If the file is an image,
 
 ## How to Use
 import chroma_key
+
 or
-from chroma_key import chromakey
+
+from chroma_key import chroma_key
 
 Call the function chroma_key with the following parameters:
+
 path - string - path of image folder where chroma_key will be applied
+
 bgImage - string - path of the background image
+
 newPath - string, optional - path of folder where new images will be created
 
 ## Dependencies
