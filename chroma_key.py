@@ -1,4 +1,8 @@
 """
+File: chroma_key.py
+Author: Cameron Falls
+
+This file contains chroma_key(), which will apply a background image to all images in a folder.
 """
 
 import cv2
@@ -7,18 +11,23 @@ import os
 
 def chroma_key(path, bgImage, newPath=os.path.join(os.getcwd(), "chroma")):
     """
+    chroma_key() will apply a background image to all images in a folder.
     Parameters
     ----------
     path - string - path of image folder where chroma_key will be applied
     bgImage - string - path of the background image
     newPath - string, optional - path of folder where new images will be created
 
+    Returns
+    -------
+    none
     """
     SUPPORTED_EXTENSIONS = np.array(["jpg", "png"]) # supported file extensions
 
     lower_thresh = np.array([0, 100, 0]) # lower threshhold to remove
     upper_thresh = np.array([100, 255, 100]) # upper threshold to remove
 
+    # Create the new folder if it does not exist
     if not os.path.exists(newPath):
         os.mkdir(newPath)
 
@@ -38,5 +47,5 @@ def chroma_key(path, bgImage, newPath=os.path.join(os.getcwd(), "chroma")):
             # Apply new background
             image = np.where(mask == 0, image, background_image)
 
+            # Save the new image
             cv2.imwrite(os.path.join(newPath, file), image)
-
