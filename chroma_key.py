@@ -11,7 +11,7 @@ import os
 
 def chroma_key(path, bgImage, newPath=os.path.join(os.getcwd(), "chroma")):
     """
-    chroma_key() will apply a background image to all images in a folder.
+    chroma_key() will apply a background image to all images in a folder. New images are saved in newPath.
     Parameters
     ----------
     path - string - path of image folder where chroma_key will be applied
