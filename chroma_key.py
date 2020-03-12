@@ -52,6 +52,3 @@ def chroma_key(path, bgImage, newPath=os.path.join(os.getcwd(), "chroma")):
                 cv2.imwrite(os.path.join(newPath, file), image)
             else:
                 cv2.imwrite(os.path.join(newPath, os.path.splitext(file)[0] + "-ck." + extension), image)
-
-ipath = os.path.join("/", "users", "camfa", "pictures", "Green Screen Testing")
-chroma_key(os.path.join(ipath, "images"), os.path.join(ipath, "field.jpg"), os.path.join(ipath, "images"))
